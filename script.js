@@ -72,15 +72,10 @@ function displayLibrary() {
 }
 displayLibrary();
 
-function changeReadStatus() {
-    // access thru array
-    // mylibrary[0].read === true ? false : true
-}
-
 const modalBtn = document.querySelector('#modal-btn');
 const modal = document.querySelector('.modal');
 modalBtn.addEventListener('click', () => modal.style.display = 'flex');
-window.addEventListener('click', function(event) {
+window.addEventListener('click', (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
     }
