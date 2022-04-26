@@ -1,16 +1,20 @@
 let myLibrary = [];
 
-function Book (title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
 
-    myLibrary.push(this)
+    addThisBook() {
+        myLibrary.push(this)
+    }
 }
 
-new Book ('asd', 'asd', 295, true);
-new Book ('asd22', 'asd22', 29, false);
+new Book ('asd', 'asd', 295, true).addThisBook();
+new Book ('asd22', 'asd22', 29, false).addThisBook();
 
 const library = document.querySelector('.library');
 
@@ -24,7 +28,7 @@ function addBookToLibrary () {
     let r = document.querySelector('#read');
 
     if (t.value && a.value && p.value) {
-        new Book (t.value, a.value, p.valueAsNumber, r.checked);
+        new Book (t.value, a.value, p.valueAsNumber, r.checked).addThisBook();
         displayLibrary();
         modal.style.display = "none";
     } else {
