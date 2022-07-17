@@ -49,6 +49,10 @@ table {
 
 /* START */
 
+body {
+    padding: 1rem;
+}
+
 .modal {
     display: none;
     position: fixed;
