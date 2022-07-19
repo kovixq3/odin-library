@@ -42,8 +42,12 @@ function addBookToLibrary() {
     displayLibrary();
     modal.style.display = "none";
   } else {
+    checkValid();
     modalWarning.style.display = "block";
-    setTimeout(() => (modalWarning.style.display = "none"), 2500);
+    setTimeout(() => {
+      modalWarning.style.display = "none";
+      [...modalWarning.children].forEach((e) => modalWarning.removeChild(e));
+    }, 3500);
   }
 }
 
@@ -96,3 +100,26 @@ window.addEventListener("click", (event) => {
     modal.style.display = "none";
   }
 });
+
+// new
+const checkValid = () => {
+  let t = document.querySelector("#title");
+  let a = document.querySelector("#author");
+  let p = document.querySelector("#pages");
+  let r = document.querySelector("#read");
+
+  if (t.validity.valueMissing === true)
+    c("Please enter the title of the book!");
+  if (a.validity.valueMissing === true)
+    c("Please enter the author of the book!");
+  if (p.validity.valueMissing === true)
+    c("Please enter the pages of the book!");
+
+  function c(s) {
+    const modalWarning = document.querySelector(".modal--warning");
+    const sentence = document.createElement("span");
+    sentence.style.display = "block";
+    sentence.textContent = s;
+    modalWarning.appendChild(sentence);
+  }
+};

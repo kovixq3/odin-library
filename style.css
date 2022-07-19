@@ -81,4 +81,6 @@ body {
     background-color: rgba(255, 203, 203);
     border-left: 4px solid rgb(133, 0, 0);
     border-radius: 4px;
+
+    transition: 200ms opacity ease;
 }
